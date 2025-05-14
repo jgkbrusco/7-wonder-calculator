@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu PWA - Tabs</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header id="header">
+      <h1>Calculadora 7 Wonders</h1>
+    </header>
+
+    <!-- Botões das Tabs -->
+    <div class="tab-container">
+      <button
+        class="tab-btn tab-player active"
+        onclick="openTab(event, 'tab1', '#347590')"
+      >
+        Player
+      </button>
+      <button
+        class="tab-btn tab-militar"
+        onclick="openTab(event, 'tab2', '#d81f26')"
+      >
+        Militar
+      </button>
+      <button
+        class="tab-btn tab-dinheiro"
+        onclick="openTab(event, 'tab3', '#a98d69')"
+      >
+        Dinheiro
+      </button>
+      <button
+        class="tab-btn tab-debito"
+        onclick="openTab(event, 'tab4', '#907b66')"
+      >
+        Débito
+      </button>
+      <button
+        class="tab-btn tab-maravilha"
+        onclick="openTab(event, 'tab5', '#d8b544')"
+      >
+        Maravilha
+      </button>
+      <button
+        class="tab-btn tab-civico"
+        onclick="openTab(event, 'tab6', '#2276cf')"
+      >
+        Cívico
+      </button>
+      <button
+        class="tab-btn tab-comercio"
+        onclick="openTab(event, 'tab7', '#e49f3b')"
+      >
+        Comércio
+      </button>
+      <button
+        class="tab-btn tab-ciencia"
+        onclick="openTab(event, 'tab8', '#1a7b30')"
+      >
+        Ciência
+      </button>
+      <button
+        class="tab-btn tab-guilda"
+        onclick="openTab(event, 'tab9', '#92278f')"
+      >
+        Guilda
+      </button>
+      <button
+        class="tab-btn tab-lideres"
+        onclick="openTab(event, 'tab10', '#a8a8a8')"
+      >
+        Lideres
+      </button>
+      <button
+        class="tab-btn tab-cidades"
+        onclick="openTab(event, 'tab11', '#5c5c5c')"
+      >
+        Cidades
+      </button>
+      <button
+        class="tab-btn tab-edificios"
+        onclick="openTab(event, 'tab12', '#e8632e')"
+      >
+        Edificios
+      </button>
+      <button
+        class="tab-btn tab-resultados"
+        onclick="openTab(event, 'tab13', '#5c9053')"
+      >
+        Resultados
+      </button>
+    </div>
+
+    <!-- Conteúdo das Tabs -->
+    <div id="tab1" class="tab-content active">
+      <!-- Tabela de Jogadores e Maravilhas -->
+      <table id="jogadores-table" border="1">
+        <thead>
+          <tr>
+            <th>Jogador</th>
+            <th>Maravilha</th>
+            <!-- A coluna de "Remover" será adicionada dinamicamente -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas da tabela serão inseridas dinamicamente -->
+        </tbody>
+      </table>
+
+      <!-- Botões de Ação -->
+      <div>
+        <button onclick="abrirModal()">Adicionar Jogador</button>
+        <button onclick="toggleRemover()">Remover Jogador</button>
+
+        <!-- Modal para Adicionar Jogador -->
+        <div id="modalAdicionarJogador" class="modal">
+          <div class="modal-content">
+            <h2>Adicionar Jogador</h2>
+            <form id="formAdicionarJogador">
+              <label for="nomeJogador">Nome do Jogador:</label>
+              <input
+                type="text"
+                id="nomeJogador"
+                placeholder="Digite o nome do jogador"
+              />
+
+              <label for="maravilhaJogador">Escolha uma Maravilha:</label>
+              <select id="maravilhaJogador">
+                <option value="">Selecione uma maravilha</option>
+                <option value="Pirâmide de Gizé">Pirâmide de Gizé</option>
+                <option value="Machu Picchu">Machu Picchu</option>
+                <option value="Grande Muralha da China">
+                  Grande Muralha da China
+                </option>
+                <option value="Colosso de Rodes">Colosso de Rodes</option>
+                <option value="Templo de Artemis">Templo de Artemis</option>
+                <option value="Estátua de Zeus">Estátua de Zeus</option>
+              </select>
+
+              <div class="modal-buttons">
+                  <button type="button" onclick="fecharModal()">Cancelar</button>
+                <button type="submit">Confirmar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab2" class="tab-content">
+      <table id="tabelaAba2" border="1">
+        <thead>
+          <tr>
+            <th>Nome do Jogador</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas com jogadores serão inseridas aqui -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="tab3" class="tab-content">
+      <table id="tabelaAba3" border="1">
+        <thead>
+          <tr>
+            <th>Nome do Jogador</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas com jogadores serão inseridas aqui -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="tab4" class="tab-content">
+      <table id="tabelaAba4" border="1">
+        <thead>
+          <tr>
+            <th>Nome do Jogador</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas com jogadores serão inseridas aqui -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="tab5" class="tab-content">
+      <table id="tabelaAba5" border="1">
+        <thead>
+          <tr>
+            <th>Nome do Jogador</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas com jogadores serão inseridas aqui -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="tab6" class="tab-content">
+      <table id="tabelaAba6" border="1">
+        <thead>
+          <tr>
+            <th>Nome do Jogador</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas com jogadores serão inseridas aqui -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="tab7" class="tab-content">
+      <table id="tabelaAba7" border="1">
+        <thead>
+          <tr>
+            <th>Nome do Jogador</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas com jogadores serão inseridas aqui -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="tab8" class="tab-content">
+      <table id="tabelaAba8" border="1">
+        <thead>
+          <tr>
+            <th>Nome do Jogador</th>
+            <th>Valor1</th>
+            <th>Valor2</th>
+            <th>Valor3</th>
+            <th>Valor4</th>
+            <th>Valor5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas com jogadores serão inseridas aqui -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="tab9" class="tab-content">
+      <table id="tabelaAba9" border="1">
+        <thead>
+          <tr>
+            <th>Nome do Jogador</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas com jogadores serão inseridas aqui -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="tab10" class="tab-content">
+      <table id="tabelaAba10" border="1">
+        <thead>
+          <tr>
+            <th>Nome do Jogador</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas com jogadores serão inseridas aqui -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="tab11" class="tab-content">
+      <table id="tabelaAba11" border="1">
+        <thead>
+          <tr>
+            <th>Nome do Jogador</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas com jogadores serão inseridas aqui -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="tab12" class="tab-content">
+      <table id="tabelaAba12" border="1">
+        <thead>
+          <tr>
+            <th>Nome do Jogador</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas com jogadores serão inseridas aqui -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="tab13" class="tab-content">
+      <table id="tabelaAba13" border="1">
+        <thead>
+          <tr>
+            <th>Nome do Jogador</th>
+            <th>Militar</th>
+            <th>Dinheiro</th>
+            <th>Débito</th>
+            <th>Maravilha</th>
+            <th>Cívico</th>
+            <th>Comércio</th>
+            <th>Ciência</th>
+            <th>Guilda</th>
+            <th>Líderes</th>
+            <th>Cidades</th>
+            <th>Edifícios</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas serão adicionadas dinamicamente -->
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      <p>
+        &copy; 2025 Meu Aplicativo de Pontuação. Todos os direitos reservados.
+      </p>
+      <h2>By: Zé do Front</h2>
+    </footer>
+  </body>
+</html>
